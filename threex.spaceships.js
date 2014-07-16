@@ -6,8 +6,10 @@ THREEx.SpaceShips.baseUrl	= '../'
 
 THREEx.SpaceShips.loadSpaceFighter01	= function(onLoad){
 	var loader	= new THREE.OBJMTLLoader();
-	loader.addEventListener('load', function( event ){
-		var object3d	= event.content
+	var baseUrl	= THREEx.SpaceShips.baseUrl 
+	var objUrl	= baseUrl + 'models/SpaceFighter01/SpaceFighter01.obj';
+	var mtlUrl	= baseUrl + 'models/SpaceFighter01/SpaceFighter01.mtl';
+	loader.load(objUrl, mtlUrl, function( object3d ){
 		object3d.scale.multiplyScalar(1/300)
 		// change emissive color of all object3d material - they are too dark
 		object3d.traverse(function(object3d){
@@ -18,10 +20,6 @@ THREEx.SpaceShips.loadSpaceFighter01	= function(onLoad){
 		// notify the callback
 		onLoad	&& onLoad(object3d)
 	});
-	var baseUrl	= THREEx.SpaceShips.baseUrl 
-	var objUrl	= baseUrl + 'models/SpaceFighter01/SpaceFighter01.obj';
-	var mtlUrl	= baseUrl + 'models/SpaceFighter01/SpaceFighter01.mtl';
-	loader.load(objUrl, mtlUrl);		
 }
 
 THREEx.SpaceShips.loadSpaceFighter02	= function(onLoad){
