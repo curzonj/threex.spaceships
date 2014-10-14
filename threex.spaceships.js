@@ -1,7 +1,7 @@
 "use strict";
 
 var THREEx = THREEx || {};
-var THREE = require('three');
+var THREE = (window !== undefined ? window.THREE : THREE);
 
 THREEx.SpaceShips = {};
 
